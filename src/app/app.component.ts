@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import {Form} from '../assets/Form';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-template-form';
+  model = new Form("","","" ,new Date);
+  submitted = false;
+  onSubmit(templateForm: NgForm){
+    this.submitted = true;
+    console.log(templateForm);
+  }
 }
+
+
