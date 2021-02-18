@@ -1,0 +1,32 @@
+<div class="container">
+
+    <form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm)">
+  
+      <div class="form-group">
+  
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Name" name = "name" ngModel required #name = "ngModel">
+        <small class= form-text text-muted *ngIf = "name.touched && !name.valid">Field is required!</small>
+      </div>
+  
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name = "email" ngModel email required #email = "ngModel">
+      <small class= form-text text-muted *ngIf = "email.touched && !email.valid">Field is required!</small>
+    </div>
+  
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" name = "phoneNumber" ngModel>
+    </div>
+  
+    <div class="form-group">
+      <label for="doB">Date of Birth</label>
+      <input type="date" class="form-control" id="doB" placeholder="Date of Birth" name = "doB" ngModel required #doB = "ngModel">
+      <small class= form-text text-muted *ngIf = "doB.touched && !doB.valid">Field is required!</small>
+  
+    </div>
+  
+    <button type="submit" class="btn btn-primary" [disabled]=!templateForm.valid>Submit</button>
+    </form>
+  </div>
