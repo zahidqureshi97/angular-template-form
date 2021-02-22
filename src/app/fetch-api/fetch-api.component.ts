@@ -1,15 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-
-export class myData{
-    constructor(
-    public id: number,
-    public email: string,
-    public firstName: string,
-    public lastName: string,
-    public avatar: string){}
-}
-
+import { throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { ApiService } from '../http.service';
 
 @Component({
   selector: 'app-fetch-api',
@@ -18,21 +11,24 @@ export class myData{
 })
 export class FetchAPIComponent implements OnInit {
 
-  users: myData[];
+  users: any =[];
 
-  constructor(private _url: HttpClient) { }
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
-    this.getMyData();
+    this.GetData();
 
   }
 
-  getMyData(){
-      return this._url.get<myData[]>('https://reqres.in/api/users?page=' + this.page).subscribe(users => {
-        this.users = users;
-        console.log(users);
-      })
-    }
+  async GetData() {
+    this.apiService.GetApi().subscribe(
+      (data) => {
+        this.users = data.data;
+        console.log(this.users)
+      }
+    );
+    //  this.Detailurl = "/";
+  }
 
   page: number = 1;
     /*
