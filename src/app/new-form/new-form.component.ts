@@ -11,8 +11,8 @@ export class NewFormComponent{
   constructor(private formBuilder: FormBuilder){
     this.reactiveForm= formBuilder.group({
       name: new FormControl('',Validators.required),
-      email: new FormControl('',Validators.required),
-      number: new FormControl('',[Validators.required, Validators.pattern('[^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$]')]),
+      email: new FormControl('',[Validators.required,Validators.pattern('^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$')]),
+      number: new FormControl('',[Validators.required,Validators.pattern('^[0-9]+$')]), 
       doB: new FormControl('', Validators.required)
     });
   }

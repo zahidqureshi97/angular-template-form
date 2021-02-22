@@ -7,19 +7,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewFormComponent } from './new-form/new-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { FetchAPIComponent } from './fetch-api/fetch-api.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewFormComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    FetchAPIComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
