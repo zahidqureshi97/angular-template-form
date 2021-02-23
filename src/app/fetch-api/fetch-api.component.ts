@@ -12,18 +12,19 @@ import { ApiService } from '../http.service';
 export class FetchAPIComponent implements OnInit {
 
   users: any =[];
-
+  arr1: any ={id: 7, first_name:'Zahid', last_name:'Qureshi', email:'zahidnqureshi@gmail.com', avatar:'https://tiny.cc/public/images/robot_small.png'};
+  
   constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
     this.GetData();
-
   }
 
   async GetData() {
     this.apiService.GetApi().subscribe(
       (data) => {
         this.users = data.data;
+        this.users.push(this.arr1);
         console.log(this.users)
       }
     );
