@@ -9,13 +9,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { FetchAPIComponent } from './fetch-api/fetch-api.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserItemComponent } from './user-item/user-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewFormComponent,
     TemplateFormComponent,
-    FetchAPIComponent
+    FetchAPIComponent,
+    UserItemComponent
   ],
   imports: [
     BrowserModule,
