@@ -1,2 +1,6 @@
-<app-user-item *ngFor="let user of users" [user]="user">
-</app-user-item>
+<form>
+  <input placeholder="Enter email" [(ngModel)]="user.email" name = "email">
+  <input placeholder="Enter First Name"[(ngModel)]="user.first_name" name = "first_name">
+  <input placeholder="Enter Last Name" [(ngModel)]="user.last_name" name = "last_name">
+  <button type="submit" (click)="addUser()">Add</button>
+</form>
